@@ -46,11 +46,21 @@ function init() {
 // Add Mock Data for presentation based on constraints provided
 function addInitialMockData() {
     const mockData = [
-        { id: generateId(), title: "The Psychology of Money", author: "Morgan Housel", year: 2020, coverUrl: "C:/Users/Asus/.gemini/antigravity/brain/6143b83a-2610-4a33-94df-dc680d901182/psychology_cover_1775107277122.png" },
-        { id: generateId(), title: "Company of One", author: "Paul Jarvis", year: 2019, coverUrl: "C:/Users/Asus/.gemini/antigravity/brain/6143b83a-2610-4a33-94df-dc680d901182/company_one_cover_1775107299913.png" },
-        { id: generateId(), title: "How Innovation Works", author: "Matt Ridley", year: 2020, coverUrl: "C:/Users/Asus/.gemini/antigravity/brain/6143b83a-2610-4a33-94df-dc680d901182/innovation_works_cover_1775107408695.png" },
-        { id: generateId(), title: "The Picture of Dorian Gray", author: "Oscar Wilde", year: 1890, coverUrl: "C:/Users/Asus/.gemini/antigravity/brain/6143b83a-2610-4a33-94df-dc680d901182/dorian_gray_cover_1775107504629.png" },
-        { id: generateId(), title: "The Two Towers", author: "J.R.R. Tolkien", year: 1954, coverUrl: "C:/Users/Asus/.gemini/antigravity/brain/6143b83a-2610-4a33-94df-dc680d901182/two_towers_cover_1775107525457.png" }
+        { id: generateId(), title: "The Psychology of Money", author: "Morgan Housel", year: 2020, coverUrl: "https://covers.openlibrary.org/b/isbn/0857197681-L.jpg" },
+        { id: generateId(), title: "Company of One", author: "Paul Jarvis", year: 2019, coverUrl: "https://covers.openlibrary.org/b/id/8796506-L.jpg" },
+        { id: generateId(), title: "How Innovation Works", author: "Matt Ridley", year: 2020, coverUrl: "https://covers.openlibrary.org/b/id/10101301-L.jpg" },
+        { id: generateId(), title: "The Picture of Dorian Gray", author: "Oscar Wilde", year: 1890, coverUrl: "https://covers.openlibrary.org/b/isbn/0141439572-L.jpg" },
+        { id: generateId(), title: "The Two Towers", author: "J.R.R. Tolkien", year: 1954, coverUrl: "https://covers.openlibrary.org/b/isbn/0618002235-L.jpg" },
+        { id: generateId(), title: "Atomic Habits", author: "James Clear", year: 2018, coverUrl: "https://covers.openlibrary.org/b/isbn/0735211299-L.jpg" },
+        { id: generateId(), title: "Thinking, Fast and Slow", author: "Daniel Kahneman", year: 2011, coverUrl: "https://covers.openlibrary.org/b/isbn/0374275637-L.jpg" },
+        { id: generateId(), title: "Deep Work", author: "Cal Newport", year: 2016, coverUrl: "https://covers.openlibrary.org/b/isbn/1455586692-L.jpg" },
+        { id: generateId(), title: "Zero to One", author: "Peter Thiel", year: 2014, coverUrl: "https://covers.openlibrary.org/b/isbn/0804139296-L.jpg" },
+        { id: generateId(), title: "Sapiens", author: "Yuval Noah Harari", year: 2011, coverUrl: "https://covers.openlibrary.org/b/isbn/0062316095-L.jpg" },
+        { id: generateId(), title: "Good to Great", author: "Jim Collins", year: 2001, coverUrl: "https://covers.openlibrary.org/b/isbn/0066620996-L.jpg" },
+        { id: generateId(), title: "The Lean Startup", author: "Eric Ries", year: 2011, coverUrl: "https://covers.openlibrary.org/b/isbn/0307887898-L.jpg" },
+        { id: generateId(), title: "Outliers", author: "Malcolm Gladwell", year: 2008, coverUrl: "https://covers.openlibrary.org/b/isbn/0316017922-L.jpg" },
+        { id: generateId(), title: "The Alchemist", author: "Paulo Coelho", year: 1988, coverUrl: "https://covers.openlibrary.org/b/isbn/0062315005-L.jpg" },
+        { id: generateId(), title: "The Subtle Art of Not Giving a F*ck", author: "Mark Manson", year: 2016, coverUrl: "https://covers.openlibrary.org/b/isbn/0062457713-L.jpg" }
     ];
     books = mockData;
     saveBooks();
@@ -59,14 +69,14 @@ function addInitialMockData() {
 
 // Core Functions
 function loadBooks() {
-    const saved = localStorage.getItem('library_dashboard_books');
+    const saved = localStorage.getItem('library_dashboard_books_v3');
     if (saved) {
         books = JSON.parse(saved);
     }
 }
 
 function saveBooks() {
-    localStorage.setItem('library_dashboard_books', JSON.stringify(books));
+    localStorage.setItem('library_dashboard_books_v3', JSON.stringify(books));
 }
 
 function displayBooks(booksToDisplay = books) {
