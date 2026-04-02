@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Book Catalogue Dashboard</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-swatchbook"></i>
+                    <span>Library</span>
+                </div>
+                <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#books-section" class="nav-link">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Books</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="nav-add-book">
+                            <i class="fa-solid fa-plus-circle"></i>
+                            <span>Add Book</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#search" class="nav-link">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>Search</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <hr class="nav-divider" />
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa-regular fa-circle-question"></i>
+                            <span>Help</span>
+                        </a>
+                    </li>
+                    <!-- Based on requirement, added remove to main nav conceptually, but in UI, we remove inline -->
+                    <!-- We can have a dedicated remove view, but inline on card is better UI practice as mentioned in reqs -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-navbar">
+                <div class="search-bar" id="search">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Find the book you like....">
+                </div>
+                
+                <div class="user-profile">
+                    <div class="notification">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge"></span>
+                    </div>
+                    <div class="profile-info">
+                        <img src="https://ui-avatars.com/api/?name=Davis+Workman&background=random" alt="User Avatar" class="avatar">
+                        <span class="user-name">Davis Workman <i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Add Book Section (Collapsible) -->
+                <section id="add-book-section" class="add-book-section hidden">
+                    <div class="section-header">
+                        <h2>Add New Book</h2>
+                        <button id="close-add-book" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <form id="add-book-form">
+                        <div class="form-group">
+                            <label for="book-title">Title</label>
+                            <input type="text" id="book-title" placeholder="e.g. The Psychology of Money" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-author">Author</label>
+                            <input type="text" id="book-author" placeholder="e.g. Morgan Housel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-year">Year</label>
+                            <input type="number" id="book-year" placeholder="e.g. 2020" min="1000" max="2100" required>
+                        </div>
+                        <button type="submit" class="primary-btn"><i class="fa-solid fa-plus"></i> Add Book</button>
+                    </form>
+                </section>
+
+                <div class="section-heading-row" id="books-section">
+                    <h2>Discover</h2>
+                    <div class="stats-badge" id="library-stats">0 / 50 Books</div>
+                </div>
+
+                <!-- Book Grid -->
+                <div class="book-grid" id="book-grid">
+                    <!-- Cards will be dynamically injected here -->
+                </div>
+                
+                <!-- Empty State -->
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-illustration">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3>No books yet</h3>
+                    <p>Your library is empty. Start adding some books!</p>
+                </div>
+
+            </div>
+        </main>
+        
+        <!-- Toast Notification -->
+        <div id="toast" class="toast hidden">
+            <i class="fa-solid fa-circle-info"></i>
+            <span id="toast-message">Notification message</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
